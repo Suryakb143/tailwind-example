@@ -27,8 +27,55 @@
           </mat-list-item>
         </mat-list>
       </div>
-    </mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Authorized Roles</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <mat-list *ngIf="authorizedRoles?.length">
+              <mat-list-item *ngFor="let role of authorizedRoles">
+                {{ role }}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Authorized Groups</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <mat-list *ngIf="authorizedRoles?.length">
+              <mat-list-item *ngFor="let role of authorizedRoles">
+                {{ role }}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion> 
   
+      <h3>Authorized Action Resources Map</h3>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let action of authorizedActionResourcesMap">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ action.resource }}
+            </mat-panel-title>
+            <mat-panel-description>
+              Actions: {{ action.actions.join(', ') }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+            <strong>Available Actions:</strong>
+            <ul>
+              <li *ngFor="let act of action.actions">{{ act }}</li>
+            </ul>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
     <!-- Profile Action Buttons -->
     <!-- <mat-card-actions>
       <button mat-raised-button color="primary">Edit Profile</button>
