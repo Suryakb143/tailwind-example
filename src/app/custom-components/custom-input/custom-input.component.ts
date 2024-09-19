@@ -21,20 +21,6 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
 
   value: any = '';
 
-  // constructor(
-  //   // Retrieve the dependency only from the local injector,
-  //   // not from parent or ancestors.
-  //   @Self()
-  //   // We want to be able to use the component without a form,
-  //   // so we mark the dependency as optional.
-  //   @Optional()
-  //   private ngControl: NgControl
-  // ) {
-  //   if (this.ngControl) {
-  //     this.ngControl.valueAccessor = this;
-  //   }
-  // }
-
   ngOnInit() {}
 
   /**

@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    console.log('test')
     this.customInputForm = this.formBuilder.group(
       {
         email: [''],
