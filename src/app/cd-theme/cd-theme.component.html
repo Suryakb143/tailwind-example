@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Themes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group *ngIf="themes?.length" [(ngModel)]="selectedTheme">
+        <mat-list>
+          <mat-list-item *ngFor="let theme of themes">
+            <mat-radio-button [value]="theme">{{ theme }}</mat-radio-button>
+          </mat-list-item>
+        </mat-list>
+      </mat-radio-group>
+      <p *ngIf="!themes?.length">No themes available.</p>
+    </mat-card-content>
+  </mat-card>
+  

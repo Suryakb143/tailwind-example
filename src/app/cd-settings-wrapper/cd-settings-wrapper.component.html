@@ -1,0 +1,37 @@
+
+<div>
+  <mat-sidenav-container class="settings-container">
+    <!-- Left Sidebar (Collapsible) -->
+     
+    <mat-sidenav #sidenav mode="side" opened class="settings-sidenav">
+      <mat-nav-list>
+        <ng-container *ngFor="let item of menuItems" >
+            <mat-list-item (click)="selectMenuItem(item)">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.label }}</span>
+              </mat-list-item>
+        </ng-container>
+      
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Right Content Area -->
+    <mat-sidenav-content class="settings-content">
+      <mat-toolbar color="primary" class="settings-toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{ selectedMenuItem.label || 'Settings' }}</span>
+      </mat-toolbar>
+  
+      <!-- <div class="content-wrapper">
+        <h1>{{ selectedMenuItem.label || 'Select a menu item' }}</h1>
+        <p>{{ selectedMenuItem.content || 'Please select a menu item from the left sidebar.' }}</p>
+      </div> -->
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+</div>
